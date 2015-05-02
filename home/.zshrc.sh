@@ -155,15 +155,20 @@ fi
 alias history-stat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
 
 # Ben's Alias's
-alias personal="cd $HOME/Dropbox/Sites/Personal"
-alias citytech="cd $HOME/Dropbox/Sites/CITYTECH"
-alias projects="cd $HOME/Dropbox/Sites/CITYTECH/projects"
-alias repos="cd $HOME/Dropbox/Sites/CITYTECH/repos"
+alias   personal="cd $HOME/Dropbox/Sites/Personal"
+alias   citytech="cd $HOME/Dropbox/Sites/CITYTECH"
+alias   projects="cd $HOME/Dropbox/Sites/CITYTECH/projects"
+alias      repos="cd $HOME/Dropbox/Sites/CITYTECH/repos"
 alias workspaces="cd $HOME/Dropbox/Sites/CITYTECH/workspaces"
-alias sites="cd $HOME/Dropbox/Sites/"
+alias      sites="cd $HOME/Dropbox/Sites/"
+
+#AEM Build Commands
+alias      aem-build="mvn clean install -DskipTests -P local"
+alias aem-build-skip="mvn clean install -P local"
 
 #AEM Start Commands
-alias ggp-auth="cd / && ./$HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author/crx-quickstart/bin/start && tail -f $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author/crx-quickstart/logs/error.log"
+alias ggp-auth="cd / && ./$HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author/crx-quickstart/bin/start && cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author/crx-quickstart"
+alias  ggp-pub="cd / && ./$HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/publish/crx-quickstart/bin/start && cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/publish/crx-quickstart"
 
 # Finder shorcuts
 alias show-hidden="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
