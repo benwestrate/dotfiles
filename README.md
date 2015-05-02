@@ -3,8 +3,12 @@ Colourful & robust OS X configuration files and utilities.
 
 Installation is done with simple command set (see “building system from scratch” for setup of new system):
 
+## Ben's Install steps
+- Install dotfiles 
+- Install node from [node-reinstall](https://github.com/brock/node-reinstall) this installs node with nvm and npm
+
 ```
-curl --silent https://raw.githubusercontent.com/paulmillr/dotfiles/master/install.sh | sh
+curl --silent https://raw.githubusercontent.com/benwestrate/dotfiles/master/install.sh | sh
 ```
 
 ## Features
