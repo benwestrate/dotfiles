@@ -15,7 +15,7 @@ autoload -U colors && colors
 # Load and execute the prompt theming system.
 fpath=("$curr/terminal" $fpath)
 autoload -Uz promptinit && promptinit
-prompt 'paulmillr'
+prompt 'benwestrate'
 
 # ==================================================================
 # = Aliases =
@@ -153,6 +153,11 @@ fi
 
 # Lists the ten most used commands.
 alias history-stat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
+
+
+# Finder shorcuts
+alias show-hidden="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
+alias hide-hidden="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app"
 
 # ==================================================================
 # = Functions =

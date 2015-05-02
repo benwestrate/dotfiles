@@ -22,7 +22,7 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Save screenshots to the downlaods.
-defaults write com.apple.screencapture location "$HOME/Downloads/"
+# defaults write com.apple.screencapture location "$HOME/Downloads/"
 
 # Sound
 # =====
@@ -95,7 +95,7 @@ chflags nohidden ~/Library
 # ======
 
 # Set Safari’s home page to `about:blank` for faster loading
-defaults write com.apple.Safari HomePage -string "about:blank"
+# defaults write com.apple.Safari HomePage -string "about:blank"
 
 # Prevent Safari from opening ‘safe’ files automatically after downloading
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
