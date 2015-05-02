@@ -170,6 +170,9 @@ alias aem-build-skip="mvn clean install -P local"
 alias ggp-auth="cd / && ./$HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author/crx-quickstart/bin/start && cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author/crx-quickstart"
 alias  ggp-pub="cd / && ./$HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/publish/crx-quickstart/bin/start && cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/publish/crx-quickstart"
 
+#AEM Running?
+alias aem-pid="ps -ef | grep java"
+
 # Finder shorcuts
 alias show-hidden="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
 alias hide-hidden="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app"
