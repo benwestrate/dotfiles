@@ -15,7 +15,6 @@ curl --silent https://raw.githubusercontent.com/benwestrate/dotfiles/master/inst
 
 ![](https://cloud.githubusercontent.com/assets/574696/3210643/80f11554-eed7-11e3-8c8f-5509bc304fc7.png)
 
-![](https://cloud.githubusercontent.com/assets/574696/3210642/7ecc9a00-eed7-11e3-9357-27c2a8576f80.png)
 
 Shell (zsh):
 
@@ -51,7 +50,6 @@ Shell (zsh):
 * `etc` — various stuff like osx text substitutions / hosts backup
 * `git-extras` — useful git functions, defined in `home/gitconfig`
 * `home` — files that are symlinked to `$HOME` directory
-* `sublime` — sublime text 2 theme & settings
 * `terminal` — terminal theme & prompt
 
 ## Building system from scratch (reminder)
