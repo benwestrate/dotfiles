@@ -15,7 +15,7 @@ autoload -U colors && colors
 # Load and execute the prompt theming system.
 fpath=("$curr/terminal" $fpath)
 autoload -Uz promptinit && promptinit
-prompt 'benwestrate'
+prompt 'paulmillr'
 
 # ==================================================================
 # = Aliases =
@@ -154,6 +154,16 @@ fi
 # Lists the ten most used commands.
 alias history-stat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
 
+# Ben's Alias's
+alias personal="cd $HOME/Dropbox/Sites/Personal"
+alias citytech="cd $HOME/Dropbox/Sites/CITYTECH"
+alias projects="cd $HOME/Dropbox/Sites/CITYTECH/projects"
+alias repos="cd $HOME/Dropbox/Sites/CITYTECH/repos"
+alias workspaces="cd $HOME/Dropbox/Sites/CITYTECH/workspaces"
+alias sites="cd $HOME/Dropbox/Sites/"
+
+#AEM Start Commands
+alias ggp-auth="cd / && ./$HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author/crx-quickstart/bin/start && tail -f $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author/crx-quickstart/logs/error.log"
 
 # Finder shorcuts
 alias show-hidden="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
