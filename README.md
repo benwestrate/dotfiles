@@ -3,12 +3,14 @@ Colourful & robust OS X configuration files and utilities.
 
 Installation is done with simple command set (see “building system from scratch” for setup of new system):
 
-## Ben's Install steps
-- Install dotfiles 
-- Install node from [node-reinstall](https://github.com/brock/node-reinstall) this installs node with nvm and npm
-
+## Main Dot files install
 ```
 curl --silent https://raw.githubusercontent.com/benwestrate/dotfiles/master/install.sh | sh
+```
+
+## New System Install 
+```
+curl --silent https://raw.githubusercontent.com/benwestrate/dotfiles/master/bootstrap-new-system.sh | sh
 ```
 
 ## Features
@@ -54,15 +56,10 @@ Shell (zsh):
 
 ## Building system from scratch (reminder)
 
-* Install "Source Code Pro" font.
 * Install XCode & its Command Line Tools.
-* Change Terminal.app theme to `terminal/paulmillr.terminal`.
 * Change default shell to ZSH: `chsh -s /bin/zsh`.
 * Insert proper hosts from `etc/hosts` to system’s `/etc/hosts`.
-* Create `~/Development/`
-* Clone this project (dotfiles **RECURSIVELY** `--recursive`) and run `sh bootstrap-new-system.sh`
-* Download [Sublime icon](https://dribbble.com/shots/1827862-Yosemite-Sublime-Text-Icon)
-* Install Sublime packages with Package Control: "Seti UI"
+
 
 ## License
 
