@@ -167,6 +167,7 @@ alias aem-build-skip="mvn clean install -P local"
 alias ggp-auth="cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author && java -jar cq-author-4502.jar"
 alias  ggp-pub="cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/publish && java -jar cq-publish-4503.jar"
 
+
 #AEM Running?
 alias aem-pid="ps -ef | grep java"
 
