@@ -26,7 +26,7 @@ if [[ `uname` == 'Darwin' ]]; then
   fi
 
   echo 'Tweaking OS X...'
-    source 'curl --silent https://raw.githubusercontent.com/benwestrate/dotfiles/master/etc/osx.sh | sh'
+    echo 'curl --silent https://raw.githubusercontent.com/benwestrate/dotfiles/master/etc/osx.sh | sh'
 
   # http://github.com/sindresorhus/quick-look-plugins
   echo 'Installing Quick Look plugins...'
