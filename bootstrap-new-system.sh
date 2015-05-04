@@ -26,7 +26,7 @@ if [[ `uname` == 'Darwin' ]]; then
   fi
 
   echo 'Tweaking OS X...'
-    source 'etc/osx.sh'
+    source 'curl --silent https://raw.githubusercontent.com/benwestrate/dotfiles/master/etc/osx.sh | sh'
 
   # http://github.com/sindresorhus/quick-look-plugins
   echo 'Installing Quick Look plugins...'
@@ -35,22 +35,15 @@ if [[ `uname` == 'Darwin' ]]; then
     brew cask install suspicious-package quicklook-json qlmarkdown qlstephen qlcolorcode
 fi
 
-echo 'Symlinking config files...'
-  source 'bin/symlink-dotfiles.sh'
+echo 'Installing Jenv'
+  brew install jenv
 
-echo 'Applying sublime config...'
-  st=$(pwd)/sublime/packages
-  as="$HOME/Library/Application Support/Sublime Text 3/Packages"
-  asprefs="$as/User/Preferences.sublime-settings"
-  if [[ -d "$as" ]]; then
-    for theme in $st/Theme*; do
-      cp -r $theme $as
-    done
-    rm $asprefs
-    cp -r $st/pm-themes $as
-  else
-    echo "Install Sublime Text http://www.sublimetext.com"
-  fi
+echo 'Installing Maven'
+  brew install maven
+
+echo 'Installing Node via nvm'
+  curl -Lo- http://get.bpkg.io | bash
+  bpkg install -g brock/node-reinstall
 
 open_apps() {
   echo 'Install apps:'
@@ -60,19 +53,6 @@ open_apps() {
   open https://www.dropbox.com
   echo 'Chrome:'
   open https://www.google.com/intl/en/chrome/browser/
-  echo 'Sequel Pro:'
-  open http://www.sequelpro.com
-  echo 'Skype:'
-  open http://www.skype.com/en/download-skype/skype-for-computer/
-  echo 'Toggl:'
-  open https://www.toggl.com
-  echo 'Tower:'
-  open http://www.git-tower.com
-  echo 'Transmission:'
-  open http://www.transmissionbt.com
-  echo 'VLC:'
-  open http://www.videolan.org/vlc/index.html
-  echo 'Pixelmator!'
 }
 
 echo 'Should I give you links for system applications (e.g. Skype, Tower, VLC)?'

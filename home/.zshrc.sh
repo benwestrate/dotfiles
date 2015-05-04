@@ -391,3 +391,7 @@ function preview() {
   [[ -z "$item" ]] && item='.'
   open $1 -a 'Preview'
 }
+
+# Jenv Setup
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
