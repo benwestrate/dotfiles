@@ -32,9 +32,6 @@ alias wget='wget --no-check-certificate'
 # JSHint short-cut.
 alias lint=jshint
 
-# Faster NPM for europeans.
-alias npme='npm --registry http://registry.npmjs.eu'
-
 # Some OS X-only stuff.
 if [[ "$OSTYPE" == darwin* ]]; then
   # Short-cuts for copy-paste.
@@ -155,15 +152,23 @@ fi
 alias history-stat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
 
 # Ben's Alias's
-alias personal="cd $HOME/Dropbox/Sites/Personal"
-alias citytech="cd $HOME/Dropbox/Sites/CITYTECH"
-alias projects="cd $HOME/Dropbox/Sites/CITYTECH/projects"
-alias repos="cd $HOME/Dropbox/Sites/CITYTECH/repos"
+alias   personal="cd $HOME/Dropbox/Sites/Personal"
+alias   citytech="cd $HOME/Dropbox/Sites/CITYTECH"
+alias   projects="cd $HOME/Dropbox/Sites/CITYTECH/projects"
+alias      repos="cd $HOME/Dropbox/Sites/CITYTECH/repos"
 alias workspaces="cd $HOME/Dropbox/Sites/CITYTECH/workspaces"
-alias sites="cd $HOME/Dropbox/Sites/"
+alias      sites="cd $HOME/Dropbox/Sites/"
+
+#AEM Build Commands
+alias      aem-build="mvn clean install -DskipTests -P local"
+alias aem-build-skip="mvn clean install -P local"
 
 #AEM Start Commands
-alias ggp-auth="cd / && ./$HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author/crx-quickstart/bin/start && tail -f $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author/crx-quickstart/logs/error.log"
+alias ggp-auth="cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author && java -jar cq-author-4502.jar"
+alias  ggp-pub="cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/publish && java -jar cq-publish-4503.jar"
+
+#AEM Running?
+alias aem-pid="ps -ef | grep java"
 
 # Finder shorcuts
 alias show-hidden="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
