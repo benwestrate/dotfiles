@@ -160,12 +160,17 @@ alias workspaces="cd $HOME/Dropbox/Sites/CITYTECH/workspaces"
 alias      sites="cd $HOME/Dropbox/Sites/"
 
 #AEM Build Commands
-alias      aem-build="mvn clean install -DskipTests -P local"
-alias aem-build-skip="mvn clean install -P local"
+alias      aem-build="mvn clean install -P local"
+alias aem-build-skip="mvn clean install -DskipTests -P local"
 
 #AEM Start Commands
-alias ggp-auth="cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author && java -jar cq-author-4502.jar"
-alias  ggp-pub="cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/publish && java -jar cq-publish-4503.jar"
+  # --- GGP
+    # --- GGP Author
+        alias       ggp-auth="cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author && java -jar cq-author-4502.jar"
+        alias ggp-auth-error="cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author && tail -f crx-quickstart/logs/error.log"
+
+    # --- GGP Publish
+      alias  ggp-pub="cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/publish && java -jar cq-publish-4503.jar"
 
 
 #AEM Running?
@@ -392,6 +397,12 @@ function preview() {
   open $1 -a 'Preview'
 }
 
+# NVM setup
+. ~/.nvm/nvm.sh
+
 # Jenv Setup
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+# Docker Setup
+eval "$(boot2docker shellinit)"
