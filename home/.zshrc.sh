@@ -160,17 +160,19 @@ alias workspaces="cd $HOME/Dropbox/Sites/CITYTECH/workspaces"
 alias      sites="cd $HOME/Dropbox/Sites/"
 
 #AEM Build Commands
-alias      aem-build="mvn clean install -P local"
-alias aem-build-skip="mvn clean install -DskipTests -P local"
+alias            aem-build="mvn clean install -P local"
+alias       aem-build-skip="mvn clean install -DskipTests -P local"
+alias   aem-build-pub-skip="mvn clean install -DskipTests -P local,replicate"
 
 #AEM Start Commands
   # --- GGP
     # --- GGP Author
-        alias       ggp-auth="cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author && java -jar cq-author-4502.jar"
-        alias ggp-auth-error="cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/author && tail -f crx-quickstart/logs/error.log"
+        alias       ggp-auth="cd $HOME/Developer/aem/ggp/author && java -jar cq-author-4502.jar"
+        alias ggp-auth-error="cd $HOME/Developer/aem/ggp/author && tail -f crx-quickstart/logs/error.log"
 
     # --- GGP Publish
-      alias  ggp-pub="cd $HOME/Dropbox/Sites/CITYTECH/workspaces/GGP/publish && java -jar cq-publish-4503.jar"
+      alias        ggp-pub="cd $HOME/Developer/aem/ggp/publish && java -jar cq-publish-4503.jar"
+      alias  ggp-pub-error="cd $HOME/Developer/aem/ggp/publish && tail -f crx-quickstart/logs/error.log"
 
 
 #AEM Running?
