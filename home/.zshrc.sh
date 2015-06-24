@@ -164,8 +164,11 @@ alias            aem-build="mvn clean install -P local"
 alias       aem-build-skip="mvn clean install -DskipTests -P local"
 alias   aem-build-pub-skip="mvn clean install -DskipTests -P local,replicate"
 
-#AEM Start Commands
+#AEM Projects
   # --- GGP
+        alias    ggp="cd $HOME/Dropbox/Sites/CITYTECH/repos/ggp"
+        alias ggp-ub="cd $HOME/Dropbox/Sites/CITYTECH/repos/ggp/ggp-ui-build"
+
     # --- GGP Author
         alias       ggp-auth="cd $HOME/Developer/aem/ggp/author && java -jar cq-author-4502.jar"
         alias ggp-auth-error="cd $HOME/Developer/aem/ggp/author && tail -f crx-quickstart/logs/error.log"
