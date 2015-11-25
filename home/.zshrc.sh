@@ -160,22 +160,30 @@ alias workspaces="cd $HOME/Dropbox/Sites/CITYTECH/workspaces"
 alias      sites="cd $HOME/Dropbox/Sites/"
 
 #AEM Build Commands
-alias            aem-build="mvn clean install -P local"
-alias       aem-build-skip="mvn clean install -DskipTests -P local"
-alias   aem-build-pub-skip="mvn clean install -DskipTests -P local,replicate"
+alias            aem-build="mvn clean install -P local -T2"
+alias       aem-build-auth="mvn clean install -DskipTests -P local -T2"
+alias        aem-build-pub="mvn clean install -DskipTests -P local,replicate -T2"
 
 #AEM Projects
   # --- GGP
-        alias    ggp="cd $HOME/Dropbox/Sites/CITYTECH/repos/ggp"
-        alias ggp-ub="cd $HOME/Dropbox/Sites/CITYTECH/repos/ggp/ggp-ui-build"
+        alias          ggp="cd $HOME/Dropbox/Sites/CITYTECH/repos/ggp"
+        alias       ggp-ub="cd $HOME/Dropbox/Sites/CITYTECH/repos/ggp/ggp-ui-build"
+        alias ggp-auth-err="cd $HOME/Developer/aem/ggp/author && tail -f crx-quickstart/logs/error.log"
+        alias  ggp-pub-err="cd $HOME/Developer/aem/ggp/publish && tail -f crx-quickstart/logs/error.log"
 
     # --- GGP Author
-        alias       ggp-auth="cd $HOME/Developer/aem/ggp/author && java -jar cq-author-4502.jar"
-        alias ggp-auth-error="cd $HOME/Developer/aem/ggp/author && tail -f crx-quickstart/logs/error.log"
+        alias ggp-auth="cd $HOME/Developer/aem/ggp/author &&
+                        find . -type f -name \"/crx-quickstart/logs/*.log.*\" -exec rm -f {} \; &&
+                        find . -type f -name \"/crx-quickstart/logs/*.log\" -exec rm -f {} \; &&
+                        sleep 5 &&
+                        ./crx-quickstart/bin/start && tail -f crx-quickstart/logs/error.log"
 
     # --- GGP Publish
-      alias        ggp-pub="cd $HOME/Developer/aem/ggp/publish && java -jar cq-publish-4503.jar"
-      alias  ggp-pub-error="cd $HOME/Developer/aem/ggp/publish && tail -f crx-quickstart/logs/error.log"
+        alias ggp-pub="cd $HOME/Developer/aem/ggp/publish &&
+                        find . -type f -name \"/crx-quickstart/logs/*.log.*\" -exec rm -f {} \; &&
+                        find . -type f -name \"/crx-quickstart/logs/*.log\" -exec rm -f {} \; &&
+                        sleep 5 &&
+                        ./crx-quickstart/bin/start && tail -f crx-quickstart/logs/error.log"
 
 
 #AEM Running?
