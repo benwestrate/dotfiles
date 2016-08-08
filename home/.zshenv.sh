@@ -111,3 +111,4 @@ BROWSER=''
 unset BROWSER
 
 export NODE_PATH='/usr/local/lib/node_modules'
+export PATH=/opt/local/bin:$PATH;
