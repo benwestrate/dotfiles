@@ -46,7 +46,7 @@
 
 [core]
   editor = subl
-	excludesfile = /Users/33106/.gitignore
+	excludesfile = /Users/Ben/.gitignore_global
 
 [format]
   pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset

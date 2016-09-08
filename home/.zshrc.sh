@@ -172,24 +172,24 @@ alias        aem-build-pub="mvn clean install -DskipTests -P local,libraries,rep
         alias       ggp-di="cd $HOME/Dropbox/Sites/CITYTECH/repos/ggp-mall-directories"
         alias     ggp-di-i="cd $HOME/Dropbox/Sites/CITYTECH/repos/ggp-mall-directories/ggp-mall-directories-iron-fe"
 
-        alias ggp-auth-err="cd $HOME/Developer/aem/ggp/author && tail -f crx-quickstart/logs/error.log"
-        alias  ggp-pub-err="cd $HOME/Developer/aem/ggp/publish && tail -f crx-quickstart/logs/error.log"
+        alias ggp-auth-err="cd $HOME/Developer/aem/ggp/6.2/author && tail -f crx-quickstart/logs/error.log"
+        alias  ggp-pub-err="cd $HOME/Developer/aem/ggp/6.2/publish && tail -f crx-quickstart/logs/error.log"
 
     # --- GGP Author
-        alias ggp-auth="cd $HOME/Developer/aem/ggp/author &&
+        alias ggp-auth="cd $HOME/Developer/aem/ggp/6.2/author &&
                         find . -type f -name \"/crx-quickstart/logs/*.log.*\" -exec rm -f {} \; &&
                         find . -type f -name \"/crx-quickstart/logs/*.log\" -exec rm -f {} \; &&
                         sleep 5 &&
                         ./crx-quickstart/bin/start && tail -f crx-quickstart/logs/error.log"
-        alias ggp-auth-stop="cd $HOME/Developer/aem/ggp/author && ./crx-quickstart/bin/stop"
+        alias ggp-auth-stop="cd $HOME/Developer/aem/ggp/6.2/author && ./crx-quickstart/bin/stop"
 
     # --- GGP Publish
-        alias ggp-pub="cd $HOME/Developer/aem/ggp/publish &&
+        alias ggp-pub="cd $HOME/Developer/aem/ggp/6.2/publish &&
                         find . -type f -name \"/crx-quickstart/logs/*.log.*\" -exec rm -f {} \; &&
                         find . -type f -name \"/crx-quickstart/logs/*.log\" -exec rm -f {} \; &&
                         sleep 5 &&
                         ./crx-quickstart/bin/start && tail -f crx-quickstart/logs/error.log"
-        alias ggp-pub-stop="cd $HOME/Developer/aem/ggp/publish && ./crx-quickstart/bin/stop"
+        alias ggp-pub-stop="cd $HOME/Developer/aem/ggp/6.2/publish && ./crx-quickstart/bin/stop"
 
 
 #AEM Running?
@@ -198,6 +198,8 @@ alias aem-pid="ps -ef | grep java"
 # Finder shorcuts
 alias show-hidden="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
 alias hide-hidden="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app"
+
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 # ==================================================================
 # = Functions =
