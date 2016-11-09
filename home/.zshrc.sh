@@ -420,3 +420,5 @@ function preview() {
 
 # NVM setup
 . ~/.nvm/nvm.sh
+
+export PATH="$HOME/.yarn/bin:$PATH"
