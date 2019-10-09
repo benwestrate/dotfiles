@@ -151,50 +151,6 @@ fi
 # Lists the ten most used commands.
 alias history-stat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
 
-# Ben's Alias's
-alias   personal="cd $HOME/Dropbox/Sites/Personal"
-alias   citytech="cd $HOME/Dropbox/Sites/CITYTECH"
-alias   projects="cd $HOME/Dropbox/Sites/CITYTECH/projects"
-alias      repos="cd $HOME/Dropbox/Sites/CITYTECH/repos"
-alias workspaces="cd $HOME/Dropbox/Sites/CITYTECH/workspaces"
-alias      sites="cd $HOME/Dropbox/Sites/"
-alias     please="sudo !!"
-
-#AEM Build Commands
-alias            aem-build="mvn clean install -P local -T2"
-alias       aem-build-auth="mvn clean install -DskipTests -P local,libraries -T2"
-alias        aem-build-pub="mvn clean install -DskipTests -P local,libraries,replicate -T2"
-
-#AEM Projects
-  # --- GGP
-        alias          ggp="cd $HOME/Dropbox/Sites/CITYTECH/repos/ggp"
-        alias       ggp-ub="cd $HOME/Dropbox/Sites/CITYTECH/repos/ggp/ggp-ui-build"
-        alias       ggp-di="cd $HOME/Dropbox/Sites/CITYTECH/repos/ggp-mall-directories"
-        alias     ggp-di-i="cd $HOME/Dropbox/Sites/CITYTECH/repos/ggp-mall-directories/ggp-mall-directories-iron-fe"
-
-        alias ggp-auth-err="cd $HOME/Developer/aem/ggp/6.2/author && tail -f crx-quickstart/logs/error.log"
-        alias  ggp-pub-err="cd $HOME/Developer/aem/ggp/6.2/publish && tail -f crx-quickstart/logs/error.log"
-
-    # --- GGP Author
-        alias ggp-auth="cd $HOME/Developer/aem/ggp/6.2/author &&
-                        find . -type f -name \"/crx-quickstart/logs/*.log.*\" -exec rm -f {} \; &&
-                        find . -type f -name \"/crx-quickstart/logs/*.log\" -exec rm -f {} \; &&
-                        sleep 5 &&
-                        ./crx-quickstart/bin/start && tail -f crx-quickstart/logs/error.log"
-        alias ggp-auth-stop="cd $HOME/Developer/aem/ggp/6.2/author && ./crx-quickstart/bin/stop"
-
-    # --- GGP Publish
-        alias ggp-pub="cd $HOME/Developer/aem/ggp/6.2/publish &&
-                        find . -type f -name \"/crx-quickstart/logs/*.log.*\" -exec rm -f {} \; &&
-                        find . -type f -name \"/crx-quickstart/logs/*.log\" -exec rm -f {} \; &&
-                        sleep 5 &&
-                        ./crx-quickstart/bin/start && tail -f crx-quickstart/logs/error.log"
-        alias ggp-pub-stop="cd $HOME/Developer/aem/ggp/6.2/publish && ./crx-quickstart/bin/stop"
-
-
-#AEM Running?
-alias aem-pid="ps -ef | grep java"
-
 # Finder shorcuts
 alias show-hidden="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
 alias hide-hidden="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app"
@@ -418,7 +374,11 @@ function preview() {
   open $1 -a 'Preview'
 }
 
+# Import custom alias's and fuctions
+. $curr/home/custom.sh
+
 # NVM setup
 . ~/.nvm/nvm.sh
 
 export PATH="$HOME/.yarn/bin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

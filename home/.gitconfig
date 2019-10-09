@@ -1,6 +1,6 @@
 [user]
-	name = Westrate, Benjamin
-	email = Benjamin.Westrate@icfi.com
+	name = Ben Westrate
+	email = ben.westrate@avionos.com
 
 [github]
   user = benwestrate
@@ -46,7 +46,7 @@
 
 [core]
   editor = subl
-	excludesfile = /Users/Ben/.gitignore_global
+	excludesfile = /Users/benwestrate/.gitignore_global
 
 [format]
   pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
@@ -81,10 +81,12 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+[commit]
+	template = /Users/benwestrate/.stCommitMsg
