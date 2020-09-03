@@ -1,6 +1,7 @@
 [user]
-	name = Ben Westrate
-	email = ben.westrate@avionos.com
+	name = Ben_Westrate
+	email = ben.westrate@agilebits.com
+	signingkey = B73DFE4D
 
 [github]
   user = benwestrate
@@ -90,3 +91,6 @@
 	newHighlight = green bold 22
 [commit]
 	template = /Users/benwestrate/.stCommitMsg
+	gpgsign = true
+[gpg]
+	program = /usr/local/bin/gpg
