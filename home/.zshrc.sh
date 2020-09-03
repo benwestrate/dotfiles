@@ -116,6 +116,10 @@ alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 # Import custom alias's and fuctions
 . $curr/home/custom.sh
 
+# Import Private system specific functions
+# note this will be empty on install 
+. $HOME/.ben/.privaterc
+
 # NVM setup
 . ~/.nvm/nvm.sh
 
