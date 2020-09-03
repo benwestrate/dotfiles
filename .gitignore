@@ -2,4 +2,4 @@
 *.pyc
 /Textmate/TextMate.pid
 .idea
-custom-hidden.sh
+home/custom-hidden.sh
