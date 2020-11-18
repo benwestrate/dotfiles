@@ -57,27 +57,27 @@ alias lint=jshint
 
 # Some OS X-only stuff.
 if [[ "$OSTYPE" == darwin* ]]; then
-  # Short-cuts for copy-paste.
-  alias c='pbcopy'
-  alias p='pbpaste'
-
-  # Remove all items safely, to Trash (`brew install trash`).
-  alias rm='trash'
-
-  # Case-insensitive pgrep that outputs full path.
-  alias pgrep='pgrep -fli'
-
-  # Lock current session and proceed to the login screen.
-  alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
-
-  # Sniff network info.
-  alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-
-  # Process grep should output full paths to binaries.
-  alias pgrep='pgrep -fli'
+    # Short-cuts for copy-paste.
+    alias c='pbcopy'
+    alias p='pbpaste'
+    
+    # Remove all items safely, to Trash (`brew install trash`).
+    alias rm='trash'
+    
+    # Case-insensitive pgrep that outputs full path.
+    alias pgrep='pgrep -fli'
+    
+    # Lock current session and proceed to the login screen.
+    alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+    
+    # Sniff network info.
+    alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+    
+    # Process grep should output full paths to binaries.
+    alias pgrep='pgrep -fli'
 else
-  # Process grep should output full paths to binaries.
-  alias pgrep='pgrep -fl'
+    # Process grep should output full paths to binaries.
+    alias pgrep='pgrep -fl'
 fi
 
 
@@ -117,7 +117,7 @@ alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 . $curr/home/custom.sh
 
 # Import Private system specific functions
-# note this will be empty on install 
+# note this will be empty on install
 . $HOME/.ben/.privaterc
 
 # NVM setup
@@ -126,14 +126,14 @@ alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 export PATH="$HOME/.yarn/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# GVM Setup 
+# GVM Setup
 # source $HOME/.gvm/scripts/gvm
 
 # gnutils
 export GUILE_TLS_CERTIFICATE_DIRECTORY="/usr/local/etc/gnutls/"
 [[ -s "/Users/ben/.gvm/scripts/gvm" ]] && source "/Users/ben/.gvm/scripts/gvm"
 
-# Go Path Setup 
+# Go Path Setup
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
 export GOBIN=$GOPATH/bin

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ================================
-# JAVA Env Comfigs 
+# JAVA Env Comfigs
 # ================================
 #defaultJavaVersion='j8'
 
@@ -15,12 +15,12 @@
 #j8
 
 # ================================
-# My Env Alias's  
+# My Env Alias's
 # ================================
 alias please="sudo !!"
 
 # ================================
-# My Env Functions  
+# My Env Functions
 # ================================
 function repos() {
     cd $HOME/Developer/repos/$1
@@ -41,7 +41,7 @@ function dc() {
     docker-compose $1
 }
 
-# $1 is the name of the running container 
+# $1 is the name of the running container
 function dcbash(){
     docker-compose exec $1 /bin/bash
 }
@@ -54,3 +54,9 @@ alias dcstop="dc stop"
 
 
 alias reload=". ~/.zshrc"
+
+alias python=/usr/local/bin/python3
+
+alias preCommit="make lint-js-all && make prettier && make lint-svg"
+
+alias bvt="WORKERS=4 make bvt-local-quiet"
