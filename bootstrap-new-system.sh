@@ -27,19 +27,7 @@ if [[ `uname` == 'Darwin' ]]; then
 
   echo 'Tweaking OS X...'
     echo 'curl --silent https://raw.githubusercontent.com/benwestrate/dotfiles/master/etc/osx.sh | sh'
-
-  # http://github.com/sindresorhus/quick-look-plugins
-  echo 'Installing Quick Look plugins...'
-    brew tap phinze/homebrew-cask
-    brew install caskroom/cask/brew-cask
-    brew cask install suspicious-package quicklook-json qlmarkdown qlstephen qlcolorcode
 fi
-
-echo 'Installing Jenv'
-  brew install jenv
-
-echo 'Installing Maven'
-  brew install maven
 
 echo 'Installing Node via nvm'
   curl -Lo- http://get.bpkg.io | bash
