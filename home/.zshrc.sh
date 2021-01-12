@@ -14,7 +14,7 @@ source "$curr/terminal/highlight.sh"
 autoload -U colors && colors
 
 export EDITOR='vim'
-
+set -g mouse on
 
 # Package managers.
 
@@ -46,12 +46,10 @@ export GUILE_TLS_CERTIFICATE_DIRECTORY="/usr/local/etc/gnutls/"
 [[ -s "/Users/ben/.gvm/scripts/gvm" ]] && source "/Users/ben/.gvm/scripts/gvm"
 
 # Go Path Setup
-export GOPATH=$HOME/go
-export GOROOT=/usr/local/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOPATH
-export PATH=$PATH:$GOROOT/bin
-export GOPATH="$HOME/go"; export GOROOT="/usr/local/go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
+# Go development
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # GPG set up
 export GPG_TTY=$(tty)
