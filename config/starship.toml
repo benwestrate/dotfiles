@@ -1,0 +1,113 @@
+format = """
+[┌─ \\[$username\\] \\[ $directory$git_branch\\] \\[${custom.hot_reloading} ${custom.foo}\\] \\[ ${custom.mute_status} \\]](bold green)
+[│](bold green)  $time $golang $nodejs $memory_usage 
+[└─>](bold green) """
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+[memory_usage]
+format = "[$symbol${ram}( | ${swap})]($style)"
+disabled = false
+threshold = -1
+symbol = " "
+style = "bold fg:blue"
+
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+symbol = " "
+
+[aws]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[directory]
+read_only = " "
+truncate_to_repo = false
+truncation_length = 5
+
+[docker]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+format = "[$symbol$version]($style)"
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+format = "[$symbol$version]($style)"
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
+
+[time]
+disabled = false
+format = "[$time]($style)"
+use_12hr = true
+
+[username]
+show_always = true
+style_user = "white bold"
+format = "[  $user ]($style)"
+
+[custom.hot_reloading]
+command = "if test -f \"/Users/ben/.b5app/hotreloading.env\"; then echo \"ON\"; else echo \"OFF\"; fi"
+style = "green"
+format = " 🔥 🔄 : [$output]($style)"
+when = "true"
+shell = ["bash", "--noprofile", "--norc"]
+
+[custom.mute_status]
+command = "if [ \"$(cat /Users/ben/.ben/mute_status.env)\" = \"MUTED\" ]; then echo \" 🔕\"; else echo \"🎤\";fi"
+style = "white"
+format = "[$output]($style)"
+when = "true"

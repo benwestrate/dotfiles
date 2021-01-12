@@ -3,6 +3,9 @@ echo 'You might need to change your default shell to zsh: `chsh -s /bin/zsh` (or
 cd $HOME
 mkdir .ben
 touch .ben/.privaterc
+touch .ben/mute_status.env
+mkdir .config
+mkdir .config/tmuxinator
 
 dir="$HOME/Developer/benwestrate"
 mkdir -p $dir

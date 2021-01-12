@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # ================================
 # JAVA Env Comfigs
 # ================================
@@ -35,6 +36,40 @@ alias              aem-pid="ps -ef | grep java"
 alias              aem-fed="aemfed -t \"http://admin:admin@localhost:4502\" -w \"ui.apps/src/main/content/jcr_root/\""
 
 # ================================
+# B5 Commands
+# ================================
+alias        1p="cd ~/go/src/go.1password.io/b5"
+alias preCommit="make lint-js-all && make prettier && make lint-svg && make lint-sass-all"
+alias       bvt="WORKERS=3 make bvt-local"
+alias       hot="make run-frontend-proxy-server"
+alias    hotall="make run-frontend-proxy-server-all"
+alias   b5serve="make clean all && make run-server"
+
+alias preCommit2="parallelizeEsLint && make prettier && make lint-svg && make lint-sass-all"
+alias    hot-off="rm ~/.b5app/hotreloading.env"
+alias     hot-on="cp ~/Developer/benwestrate/hotreloading.env ~/.b5app"
+
+function hotStatus() {
+    FILE=~/.b5app/hotreloading.env
+    if test -f "~/.b5app/hotreloading.env"; then echo "ON"; else echo "OFF"; fi
+}
+
+function parallelizeEsLint() {
+    cd /Users/ben/go/src/go.1password.io/b5
+    esLintPaths=(
+        "cd client/src/vendor/onepassword && ./node_modules/.bin/eslint . --quiet --cache"
+        "cd client/src/vendor/web-workers && ./node_modules/.bin/eslint . --quiet --cache"
+        "cd client/src/js/app && ../../node_modules/.bin/eslint . --quiet --cache --fix"
+        "cd client/src/tests && ../node_modules/.bin/eslint . --quiet --cache"
+        "cd client/src/key_reset_tests && ../node_modules/.bin/eslint . --quiet --cache"
+        "cd bvt && ./node_modules/.bin/eslint . --quiet --cache"
+        "cd scripts/team-builder && ./node_modules/.bin/eslint . --quiet --cache"
+        "cd client/src/vendor/test-rite && ./node_modules/.bin/eslint . --quiet --cache"
+    )
+    concurrently $esLintPaths
+}
+
+# ================================
 # Docker Compose -- Functions's
 # ================================
 function dc() {
@@ -57,6 +92,10 @@ alias reload=". ~/.zshrc"
 
 alias python=/usr/local/bin/python3
 
-alias preCommit="make lint-js-all && make prettier && make lint-svg"
+# ================================
+# Git -- Alias's
+# ================================
 
-alias bvt="WORKERS=4 make bvt-local-quiet"
+alias gc="git ci"
+
+. $curr/home/mute_status.sh
