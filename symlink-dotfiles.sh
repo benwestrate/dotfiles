@@ -23,3 +23,10 @@ for location in $(find home -name '.*'); do
   file="${file%.sh}"
   link "$dotfiles/$location" "$HOME/$file"
 done
+
+# link config files
+for location in $(find config -name '**.*'); do
+  file="${location}"
+  file="${file//config/.config}"
+  link "$dotfiles/$location" "$HOME/$file"
+done
