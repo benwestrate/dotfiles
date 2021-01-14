@@ -14,7 +14,6 @@ source "$curr/terminal/highlight.sh"
 autoload -U colors && colors
 
 export EDITOR='vim'
-set -g mouse on
 
 # Package managers.
 

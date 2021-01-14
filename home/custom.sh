@@ -98,4 +98,11 @@ alias python=/usr/local/bin/python3
 
 alias gc="git ci"
 
+# ================================
+# TMux -- Alias's
+# ================================
+
+alias mux="tmuxinator"
+alias b5mux="mux start b5"
+
 . $curr/home/mute_status.sh
