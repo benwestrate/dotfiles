@@ -45,9 +45,10 @@ export PATH="$HOME/.yarn/bin:$PATH"
 export GUILE_TLS_CERTIFICATE_DIRECTORY="/usr/local/etc/gnutls/"
 [[ -s "/Users/ben/.gvm/scripts/gvm" ]] && source "/Users/ben/.gvm/scripts/gvm"
 
+
 # Go Path Setup
 # Go development
-export GOPATH="${HOME}/.go"
+export GOPATH="${HOME}/go"
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 

@@ -46,7 +46,7 @@ alias    hotall="make run-frontend-proxy-server-all"
 alias   b5serve="make clean all && make run-server"
 
 alias preCommit2="parallelizeEsLint && make prettier && make lint-svg && make lint-sass-all"
-alias    hot-off="rm ~/.b5app/hotreloading.env"
+alias    hot-off="rm -rf ~/.b5app/hotreloading.env"
 alias     hot-on="cp ~/Developer/benwestrate/hotreloading.env ~/.b5app"
 
 function hotStatus() {
