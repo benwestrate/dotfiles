@@ -1,8 +1,15 @@
 set nocompatible " be iMproved, required
 filetype off     " required
 
+set encoding=UTF-8
+
 " Keep Plug commands between plug#begin() and plug#end().
 call plug#begin()
+Plug 'preservim/nerdtree'                       " File View
+Plug 'ryanoasis/vim-devicons'                   " Nerdtree icons
+Plug 'Xuyuanp/nerdtree-git-plugin'              " Nerdtree git status
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " Nerdtree syntax highlight
+
 
 Plug 'janko/vim-test'             " Run Ruby and Elixir tests
 Plug 'nikolalsvk/vim-rails'       " Rails plugin
@@ -28,10 +35,13 @@ Plug 'junegunn/fzf.vim'           " Set up fzf and fzf.vim
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'tpope/vim-eunuch'
+
 " All of your Plugins must be added before the following line
 call plug#end()              " required
-filetype plugin indent on    " required
 
+filetype plugin indent on    " required
+autocmd VimEnter * NERDTree | wincmd p
 
 
 " Leader key is SPACE, I find it the best
@@ -143,6 +153,9 @@ nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>
 
 " Toggle relative line numbers
 nnoremap <leader>rn :set relativenumber!<cr>
+
+" Always show x lines after the cursor
+set scrolloff=10
 
 " If fzf installed using git
 set rtp+=~/.fzf
