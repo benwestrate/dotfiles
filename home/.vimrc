@@ -2,6 +2,7 @@ set nocompatible " be iMproved, required
 filetype off     " required
 
 set encoding=UTF-8
+set relativenumber
 
 " Keep Plug commands between plug#begin() and plug#end().
 call plug#begin()
@@ -201,6 +202,8 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 
+" Close Nerdtree when it is the last buffer open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 let g:fugitive_pty = 0
