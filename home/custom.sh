@@ -45,7 +45,7 @@ alias       hot="make run-frontend-proxy-server"
 alias    hotall="make run-frontend-proxy-server-all"
 alias   b5serve="make clean all && make run-server"
 
-alias preCommit2="parallelizeEsLint && make prettier && make lint-svg && make lint-sass-all"
+alias preCommit2="parallelizeEsLint && make prettier-all && make lint-svg && make lint-sass-all"
 alias    hot-off="rm -rf ~/.b5app/hotreloading.env"
 alias     hot-on="cp ~/Developer/benwestrate/hotreloading.env ~/.b5app"
 
@@ -57,14 +57,13 @@ function hotStatus() {
 function parallelizeEsLint() {
     cd /Users/ben/go/src/go.1password.io/b5
     esLintPaths=(
-        "cd client/src/vendor/onepassword && ./node_modules/.bin/eslint . --quiet --cache"
-        "cd client/src/vendor/web-workers && ./node_modules/.bin/eslint . --quiet --cache"
-        "cd client/src/js/app && ../../node_modules/.bin/eslint . --quiet --cache --fix"
-        "cd client/src/tests && ../node_modules/.bin/eslint . --quiet --cache"
-        "cd client/src/key_reset_tests && ../node_modules/.bin/eslint . --quiet --cache"
-        "cd bvt && ./node_modules/.bin/eslint . --quiet --cache"
-        "cd scripts/team-builder && ./node_modules/.bin/eslint . --quiet --cache"
-        "cd client/src/vendor/test-rite && ./node_modules/.bin/eslint . --quiet --cache"
+        "npx eslint --quiet client/web-api"
+        "npx eslint --quiet client/web-workers"
+        "npx eslint --quiet client/web-ui"
+        "npx eslint --quiet client/integration-tests"
+        "npx eslint --quiet client/key-reset-tests"
+        "npx eslint --quiet bvt"
+        "npx eslint --quiet scripts/team-builder"
     )
     concurrently $esLintPaths
 }

@@ -13,7 +13,7 @@ source "$curr/terminal/highlight.sh"
 
 autoload -U colors && colors
 
-export EDITOR='vim'
+export EDITOR='nova'
 
 # Package managers.
 
