@@ -41,18 +41,17 @@ root: ~/go/src/go.1password.io/b5
 # attach: false
 
 windows:
-  - b5-server:
+  - b5:
       layout: main-horizontal
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - server : 
-          - ls
-        - frontend : 
-          - ls
+        - code :
+          - vim
+        - server :
+        - frontend :
   - scratch-pad:
       layout : main-horizontal
-      panes : 
-        - root: ~/
-        - ls
+      panes :
+        - home : ~/

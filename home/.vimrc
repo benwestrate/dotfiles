@@ -36,6 +36,9 @@ Plug 'junegunn/fzf.vim'           " Set up fzf and fzf.vim
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'ericbn/vim-relativize'
+
+
 Plug 'tpope/vim-eunuch'
 
 " All of your Plugins must be added before the following line
@@ -153,10 +156,10 @@ nnoremap <silent><leader>2 :e ~/.vimrc<CR>
 nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>
 
 " Toggle relative line numbers
-nnoremap <leader>rn :set relativenumber!<cr>
+" nnoremap <leader>rn :set relativenumber!<cr>
 
 " Always show x lines after the cursor
-set scrolloff=10
+set scrolloff=30
 
 " If fzf installed using git
 set rtp+=~/.fzf
@@ -205,5 +208,9 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 " Close Nerdtree when it is the last buffer open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Set default nerdtree size
+:let g:NERDTreeWinSize=60
+
+ set number relativenumber
 
 let g:fugitive_pty = 0
