@@ -6,35 +6,40 @@ set relativenumber
 
 " Keep Plug commands between plug#begin() and plug#end().
 call plug#begin()
-Plug 'preservim/nerdtree'                       " File View
-Plug 'ryanoasis/vim-devicons'                   " Nerdtree icons
-Plug 'Xuyuanp/nerdtree-git-plugin'              " Nerdtree git status
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " Nerdtree syntax highlight
+Plug 'sonph/onehalf', { 'rtp': 'vim' }                      " Secondary Theme
+Plug 'arzg/vim-colors-xcode'                                " Primary Theme
+Plug 'preservim/nerdtree'                                   " File View
+Plug 'ryanoasis/vim-devicons'                               " Nerdtree icons
+Plug 'Xuyuanp/nerdtree-git-plugin'                          " Nerdtree git status
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'              " Nerdtree syntax highlight
 
 
-Plug 'janko/vim-test'             " Run Ruby and Elixir tests
-Plug 'nikolalsvk/vim-rails'       " Rails plugin
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}         " Multi Cursor Support
 
-Plug 'airblade/vim-gitgutter'     " Show git diff of lines edited
-Plug 'tpope/vim-fugitive'         " :Gblame
+Plug 'janko/vim-test'                                       " Run Ruby and Elixir tests
+Plug 'nikolalsvk/vim-rails'                                 " Rails plugin
 
-Plug 'tpope/vim-endwise'          " Autocomplete end after a do
-Plug 'mileszs/ack.vim'            " Use ack in Vim
+Plug 'airblade/vim-gitgutter'                               " Show git diff of lines edited
+Plug 'tpope/vim-fugitive'                                   " :Gblame
 
-Plug 'pangloss/vim-javascript'    " JavaScript support
-Plug 'leafgarland/typescript-vim' " TypeScript syntax
-Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
-Plug 'jparise/vim-graphql'        " GraphQL syntax
-Plug 'styled-components/vim-styled-components'
-Plug 'alvan/vim-closetag'         " Autoclose tags
-Plug 'sbdchd/neoformat'           " Prettier
+Plug 'tpope/vim-endwise'                                    " Autocomplete end after a do
+Plug 'mileszs/ack.vim'                                      " Use ack in Vim
 
-Plug 'vim-airline/vim-airline'    " Vim powerline
+Plug 'pangloss/vim-javascript'                              " JavaScript support
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }      " Prettier support
+Plug 'HerringtonDarkholme/yats.vim'                         " Typescript Support
+Plug 'maxmellon/vim-jsx-pretty'                             " JS and JSX syntax
+Plug 'jparise/vim-graphql'                                  " GraphQL syntax
+Plug 'styled-components/vim-styled-components'              " Styled comments (JS Doc)
+Plug 'alvan/vim-closetag'                                   " Autoclose tags
+Plug 'sbdchd/neoformat'                                     " Prettier
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'           " Set up fzf and fzf.vim
+Plug 'vim-airline/vim-airline'                              " Vim powerline
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }         " Serching
+Plug 'junegunn/fzf.vim'                                     " Set up fzf and fzf.vim
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}             " Auto complete
 
 Plug 'ericbn/vim-relativize'
 
@@ -47,6 +52,21 @@ call plug#end()              " required
 filetype plugin indent on    " required
 autocmd VimEnter * NERDTree | wincmd p
 
+" Theming
+syntax on
+set t_Co=256
+set cursorline
+colorscheme xcodewwdc
+"let g:airline_theme='onehalflight'
+
+" lightline
+let g:lightline = { 'colorscheme': 'onehalfdark' }
+
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
 
 " Leader key is SPACE, I find it the best
 let mapleader = " "
@@ -88,6 +108,10 @@ nmap z za
 
 " Disable all bells and whistles
 set noerrorbells visualbell t_vb=
+
+" Run prettier when exiting insert mode
+let g:prettier#quickfix_enabled = 0
+autocmd TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " Ack tricks
 let g:ackprg = 'ag --vimgrep'
@@ -204,6 +228,8 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
+
+nmap <leader>f :NERDTreeFind <CR>
 
 " Close Nerdtree when it is the last buffer open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

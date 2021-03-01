@@ -39,13 +39,12 @@ alias              aem-fed="aemfed -t \"http://admin:admin@localhost:4502\" -w \
 # B5 Commands
 # ================================
 alias        1p="cd ~/go/src/go.1password.io/b5"
-alias preCommit="make lint-js-all && make prettier && make lint-svg && make lint-sass-all"
 alias       bvt="WORKERS=3 make bvt-local"
 alias       hot="make run-frontend-proxy-server"
 alias    hotall="make run-frontend-proxy-server-all"
 alias   b5serve="make clean all && make run-server"
 
-alias preCommit2="parallelizeEsLint && make prettier-all && make lint-svg && make lint-sass-all"
+alias preCommit2="parallelizePreCommit"
 alias    hot-off="rm -rf ~/.b5app/hotreloading.env"
 alias     hot-on="cp ~/Developer/benwestrate/hotreloading.env ~/.b5app"
 
@@ -54,14 +53,23 @@ function hotStatus() {
     if test -f "~/.b5app/hotreloading.env"; then echo "ON"; else echo "OFF"; fi
 }
 
-function parallelizeEsLint() {
+function parallelizePreCommit(){
     cd /Users/ben/go/src/go.1password.io/b5
+    parallelizeEsLint
+    work=(
+      "make all/prettier"
+      "make lint-svg"
+      "make lint-sass-fix"
+    )
+    concurrently $work
+}
+
+function parallelizeEsLint() {
     esLintPaths=(
         "npx eslint --quiet client/web-api"
         "npx eslint --quiet client/web-workers"
         "npx eslint --quiet client/web-ui"
         "npx eslint --quiet client/integration-tests"
-        "npx eslint --quiet client/key-reset-tests"
         "npx eslint --quiet bvt"
         "npx eslint --quiet scripts/team-builder"
     )
